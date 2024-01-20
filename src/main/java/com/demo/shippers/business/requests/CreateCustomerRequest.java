@@ -1,9 +1,20 @@
 package com.demo.shippers.business.requests;
 
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
+
 public class CreateCustomerRequest {
+    @NotNull
+    @NotBlank
     private String firstName;
+    @NotNull
+    @NotBlank
     private String lastName;
+    @Email
     private String email;
+    @Pattern(regexp = "^\\(?(5[0-9]{2})\\)?[-.\\s]?([0-9]{3})[-.\\s]?([0-9]{4})$", message = "Be sure to enter a phone number")
     private String number;
 
     public CreateCustomerRequest() {
